@@ -654,8 +654,9 @@ def admin_upload_blueprint():
             cursor.close()
             conn.close()
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True, port=5000)
 @app.route("/")
 def home():
     return "SafePath Backend Running 🚀"
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', debug=True, port=5000)
