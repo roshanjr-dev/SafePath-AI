@@ -100,7 +100,15 @@ DB_NAME=emergency_lifeline
 BASE_URL=http://localhost:5173
 GEMINI_API_KEY=
 
+
 ## 6. Generate QR Codes
+QR codes are dynamically generated based on the current BASE_URL.
+Before generating, make sure to remove any old QR codes:
+
+```bash
+rm -rf frontend/public/qrcodes/*
+
+Then run:
 python generate_qrs.py
 QR codes will be stored in:
 frontend/public/qrcodes/
