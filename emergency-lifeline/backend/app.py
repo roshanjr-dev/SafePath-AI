@@ -655,6 +655,12 @@ def admin_upload_blueprint():
             cursor.close()
             conn.close()
 
+@app.route("/seed")
+def seed_db_route():
+    from seed_db import seed
+    seed()
+    return "Seeded!"
+
 @app.route("/")
 def home():
     return "SafePath Backend Running 🚀"

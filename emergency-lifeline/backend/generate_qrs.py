@@ -7,7 +7,7 @@ def generate_qrs():
     load_dotenv()
     
     # Use the local HTTPS URL to satisfy mobile browser security requirements
-    base_url = os.getenv("BASE_URL", "http://localhost:5173")
+    base_url = "https://safe-path-ai-lilac.vercel.app/"
     
     # Fetch locations from DB
     try:
