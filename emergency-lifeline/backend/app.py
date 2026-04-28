@@ -23,14 +23,15 @@ model = genai.GenerativeModel('gemini-2.5-flash')
 def get_db_connection():
     try:
         connection = mysql.connector.connect(
-            host=os.getenv("DB_HOST", "localhost"),
-            user=os.getenv("DB_USER", "root"),
-            password=os.getenv("DB_PASSWORD", ""),
-            database=os.getenv("DB_NAME", "emergency_lifeline")
+            host=os.getenv("DB_HOST"),
+            port=int(os.getenv("DB_PORT", 3306)),  
+            user=os.getenv("DB_USER"),
+            password=os.getenv("DB_PASSWORD"),
+            database=os.getenv("DB_NAME")
         )
         return connection
     except Error as e:
-        print(f"Error connecting to MySQL: {e}")
+        print("DB ERROR:", e)
         return None
 
 @app.route('/api/scan', methods=['POST'])
